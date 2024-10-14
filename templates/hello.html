@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="1">
+<title>25조 AI졸업작품</title>
+</head>
+
+<body>
+<style>
+	body { padding: 50px; }
+	.graph { height : 40px; background:#ccc; border-radius: 40px; }
+	.graph span { display : block; padding: 0 10px; width 75%; height 40px;
+	line-height: 40px; text-align: right; background : violet; border-radius:
+	40px; box-sizing: border-box; color: #fff;  }
+	
+	.graph.stack1 span {background:violet;}
+	.graph.stack2 span {background:blue;}
+	.graph.stack3 span {background:green;}
+
+	@keyframes stack{
+		0% {width: 0 color: rgba(255,255,255,0); }
+		40% {color: rgba(255,255,255,1); }
+		100% {width: 31%; }
+	@keyframes stack2{
+		0% {width: 0 color: rgba(255,255,255,0); }
+		40% {color: rgba(255,255,255,1); }
+		100% {width: 63.4%; }
+	@keyframes stack3{
+		0% {width: 0 color: rgba(255,255,255,0); }
+		40% {color: rgba(255,255,255,1); }
+		100% {width: 32%; }
+	}
+
+</style>
+<div style=" text-align: center;">
+	<a href="{{ url_for('setmode',set1=1,set2=3) }}"><input type="button" value="자동 제어" 
+	style=" background:skyblue; margin: 0 0 30px; font-size:2em; border-radius:0.5em; padding:5px 20px;"
+onclick="alert('자동제어 활성화.')"
+></a>
+
+	<a href="{{ url_for('setmode',set1=0,set2=3) }}"><input type="button" value="수동 제어" 
+	style=" background:skyblue; margin: 0 0 30px; font-size:2em; border-radius:0.5em; padding:5px 20px;"
+onclick="alert('수동제어 활성화.')"
+></a>
+<div  style="border:2px dotted blue; text-align:center; font-size:1em; word-spacing:40px">
+	<h2>제어상태:{{result}}                     개폐상태:{{result2}}</h2>
+</div>
+<h1 style=text-align:left;>온도</h1>
+</div>
+<div class="graph stack1">
+	<span style="width:{{temp}}%;">{{temp}}℃</span>
+</div>
+<h4></h4>
+<h1 style=text-align:left;>습도</h1>
+<div class="graph stack2">
+	<span style="width:{{humi}}%;">{{humi}}%</span>
+</div>
+
+<h1 style="text-align:left; ">가스</h1>
+<div class="graph stack3">
+	<span style="width:{{gas}}%;">{{gas}}%</span>
+</div>
+
+<h2 style= text-align:center;word-spacing:40px"><h2>
+<h2 style= text-align:center;word-spacing:40px"><h2>
+
+<div style=" text-align: center;">
+	<a href="{{ url_for('setmode',set1=0, set2 =1) }}"><input type="button" {{onoff}}  value="창문 열기" 
+	style=" background:skyblue; margin: 0 0 30px; button-align:center; font-size:1em; border-radius:0.5em; padding:5px 20px;"></a>
+
+	<a href="{{ url_for('setmode',set1=0,set2 =0) }}"><input type="button" {{onoff}} value="창문 닫기" 
+	style=" background:skyblue; margin: 0 0 30px; button-align:center; font-size:1em; border-radius:0.5em; padding:5px 20px;"></a>
+</div>
+</body>
+
+</head>
+</html>
+ 
